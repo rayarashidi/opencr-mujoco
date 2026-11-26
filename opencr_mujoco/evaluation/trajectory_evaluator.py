@@ -401,6 +401,7 @@ class TrajectoryEvaluator:
         def record_sample(post_release_t):
             """Record tip (and mid) pose plus any due per-link shape frames."""
             nonlocal next_shape_idx
+            mujoco.mj_kinematics(model, data)
             sim_tip_poses.append(get_body_pose(tip_body_id))
             if is_dual_tracking:
                 # Track the mid position at the exact arc midpoint (site)
